@@ -1,4 +1,5 @@
 // Problem
+//                                                          BITS
 
 #include<iostream>
 #include<vector>
@@ -70,6 +71,41 @@ int main()
     std::cout<<"Gray : "<< Grey <<"\n";
     std::cout<<"Resl : "<< (Redd & Grey) <<"\n";
     std::cout<<"Resl : "<< ((Redd & Grey) >> 11)<<"\n";
+    int z = gray;
+    std::cout<<"Parity : "<<__builtin_parity(z)<<"\n"; // 0 - even parity  &  1 - for odd parity
+    std::cout<<"Parity : "<< __builtin_popcount(z)<<"\n"; // count no of 1's
+    
+    
+    int v = 0;
+    std::bitset<16> vv(v);
+    std::cout<<"vv1 : "<< vv <<"\n";
+    v |= (1<<1);
+     std::cout<<"vv2 : "<< vv <<"\n";
+    v |= (1<<3);
+     std::cout<<"vv3 : "<< vv <<"\n";
+    v |= (1<<4);
+     std::cout<<"vv4 : "<< vv <<"\n";
+    v |= (1<<8);
+     std::cout<<"vv5 : "<< vv <<"\n";
+    std::cout<<__builtin_popcount(v)<<"\n";
+    
+    for (int i = 0; i < 32; i++) {
+        if (v&(1<<i)) std::cout << i << "\n";
+    }
+    
+    
+    
+    
+    int ccc = 0;
+    ccc = (1<<1)|(1<<3)|(1<<4)|(1<8);
+    int xxx = (1<<3)|(1<<6)|(1<<8)|(1<9);
+    int zzz = xxx|ccc;
+    std::bitset<16> cc(ccc), pp(xxx), qq(zzz);
+    std::cout<<"ccc : "<< cc <<"\n";
+    std::cout<<"xxx : "<< pp <<"\n";
+    std::cout<<"zzz : "<< qq <<"\n";
+    std::cout<<"count : "<< __builtin_popcount(zzz)<<"\n"; // count no of 1's
+    
     getchar();
 }
 
