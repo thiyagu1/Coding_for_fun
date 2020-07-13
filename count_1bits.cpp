@@ -1,5 +1,4 @@
 // Problem
-//Count total set bits in all numbers from 1 to n
 
 #include<iostream>
 #include<vector>
@@ -57,8 +56,20 @@ int main()
     std::cout<<"q : "<< q <<"\n" ;
     std::cout<<"r : "<< r <<"\n" ;
     
-    int count = setbits(3);
-    std::cout<<"Final Count : "<<count<<"\n";
+    //int count = setbits(3);
+    //std::cout<<"Final Count : "<<count<<"\n";
+    
+    // MAsking
+    int red = 0xF800;
+    int gray = 0xFF00;
+    
+    std::bitset<16> Redd(red);
+    std::bitset<16> Grey(gray);
+    
+    std::cout<<"Redd : "<< Redd <<"\n";
+    std::cout<<"Gray : "<< Grey <<"\n";
+    std::cout<<"Resl : "<< (Redd & Grey) <<"\n";
+    std::cout<<"Resl : "<< ((Redd & Grey) >> 11)<<"\n";
     getchar();
 }
 
